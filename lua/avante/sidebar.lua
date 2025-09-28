@@ -1306,7 +1306,7 @@ function Sidebar:on_mount(opts)
 
   -- Add keymap to add current buffer while sidebar is open
   if Config.mappings.files and Config.mappings.files.add_current then
-    vim.keymap.set("n", Config.mappings.files.add_current, function()
+    Utils.safe_keymap_set("n", Config.mappings.files.add_current, function()
       if self:is_open() and self.file_selector:add_current_buffer() then
         vim.notify("Added current buffer to file selector", vim.log.levels.DEBUG, { title = "Avante" })
       else
