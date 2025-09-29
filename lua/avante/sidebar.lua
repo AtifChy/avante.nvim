@@ -1313,7 +1313,7 @@ function Sidebar:on_mount(opts)
         vim.notify("Failed to add current buffer", vim.log.levels.WARN, { title = "Avante" })
       end
     end, {
-      desc = "avante: add current buffer to file selector",
+      desc = "Add Current Buffer to File Selector",
       noremap = true,
       silent = true,
     })

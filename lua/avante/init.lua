@@ -92,66 +92,66 @@ function H.keymaps()
       { "n", "v" },
       Config.mappings.ask,
       function() require("avante.api").ask() end,
-      { desc = "avante: ask" }
+      { desc = "Ask" }
     )
     Utils.safe_keymap_set(
       { "n", "v" },
       Config.mappings.zen_mode,
       function() require("avante.api").zen_mode() end,
-      { desc = "avante: toggle Zen Mode" }
+      { desc = "Toggle Zen Mode" }
     )
     Utils.safe_keymap_set(
       { "n", "v" },
       Config.mappings.new_ask,
       function() require("avante.api").ask({ new_chat = true }) end,
-      { desc = "avante: create new ask" }
+      { desc = "Create New Ask" }
     )
     Utils.safe_keymap_set(
       "v",
       Config.mappings.edit,
       function() require("avante.api").edit() end,
-      { desc = "avante: edit" }
+      { desc = "Edit" }
     )
     Utils.safe_keymap_set(
       "n",
       Config.mappings.stop,
       function() require("avante.api").stop() end,
-      { desc = "avante: stop" }
+      { desc = "Stop" }
     )
     Utils.safe_keymap_set(
       "n",
       Config.mappings.refresh,
       function() require("avante.api").refresh() end,
-      { desc = "avante: refresh" }
+      { desc = "Refresh" }
     )
     Utils.safe_keymap_set(
       "n",
       Config.mappings.focus,
       function() require("avante.api").focus() end,
-      { desc = "avante: focus" }
+      { desc = "Focus" }
     )
 
-    Utils.safe_keymap_set("n", Config.mappings.toggle.default, function() M.toggle() end, { desc = "avante: toggle" })
+    Utils.safe_keymap_set("n", Config.mappings.toggle.default, function() M.toggle() end, { desc = "Toggle Sidebar" })
     Utils.safe_keymap_set(
       "n",
       Config.mappings.toggle.debug,
       function() M.toggle.debug() end,
-      { desc = "avante: toggle debug" }
+      { desc = "Toggle Debug" }
     )
     Utils.safe_keymap_set(
       "n",
       Config.mappings.toggle.selection,
       function() M.toggle.hint() end,
-      { desc = "avante: toggle selection" }
+      { desc = "Toggle Selection" }
     )
     Utils.safe_keymap_set(
       "n",
       Config.mappings.toggle.suggestion,
       function() M.toggle.suggestion() end,
-      { desc = "avante: toggle suggestion" }
+      { desc = "Toggle Suggestion" }
     )
     Utils.safe_keymap_set("n", Config.mappings.toggle.repomap, function() require("avante.repo_map").show() end, {
-      desc = "avante: display repo map",
+      desc = "Display Repo Map",
       noremap = true,
       silent = true,
     })
@@ -159,20 +159,20 @@ function H.keymaps()
       "n",
       Config.mappings.select_model,
       function() require("avante.api").select_model() end,
-      { desc = "avante: select model" }
+      { desc = "Select Model" }
     )
     Utils.safe_keymap_set(
       "n",
       Config.mappings.select_history,
       function() require("avante.api").select_history() end,
-      { desc = "avante: select history" }
+      { desc = "Select History" }
     )
 
     Utils.safe_keymap_set(
       "n",
       Config.mappings.files.add_all_buffers,
       function() require("avante.api").add_buffer_files() end,
-      { desc = "avante: add all open buffers" }
+      { desc = "Add All Open Buffers" }
     )
   end
 
@@ -181,7 +181,7 @@ function H.keymaps()
       local _, _, sg = M.get()
       sg:accept()
     end, {
-      desc = "avante: accept suggestion",
+      desc = "Accept Suggestion",
       noremap = true,
       silent = true,
     })
@@ -190,7 +190,7 @@ function H.keymaps()
       local _, _, sg = M.get()
       if sg:is_visible() then sg:dismiss() end
     end, {
-      desc = "avante: dismiss suggestion",
+      desc = "Dismiss Suggestion",
       noremap = true,
       silent = true,
     })
@@ -199,7 +199,7 @@ function H.keymaps()
       local _, _, sg = M.get()
       sg:next()
     end, {
-      desc = "avante: next suggestion",
+      desc = "Next Suggestion",
       noremap = true,
       silent = true,
     })
@@ -208,7 +208,7 @@ function H.keymaps()
       local _, _, sg = M.get()
       sg:prev()
     end, {
-      desc = "avante: previous suggestion",
+      desc = "Previous Suggestion",
       noremap = true,
       silent = true,
     })

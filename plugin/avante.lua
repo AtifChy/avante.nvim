@@ -84,7 +84,7 @@ cmd("Ask", function(opts)
     question = question or nil,
   }))
 end, {
-  desc = "avante: ask AI for code suggestions",
+  desc = "Ask AI for Code Suggestions",
   nargs = "*",
   complete = ask_complete,
 })
@@ -94,7 +94,7 @@ cmd("Chat", function(opts)
 
   require("avante.api").ask(args)
 end, {
-  desc = "avante: chat with the codebase",
+  desc = "Chat with the Codebase",
   nargs = "*",
   complete = ask_complete,
 })
@@ -103,8 +103,8 @@ cmd("ChatNew", function(opts)
   args.ask = false
   args.new_chat = true
   require("avante.api").ask(args)
-end, { desc = "avante: create new chat", nargs = "*", complete = ask_complete })
-cmd("Toggle", function() require("avante").toggle() end, { desc = "avante: toggle AI panel" })
+end, { desc = "Create New Chat", nargs = "*", complete = ask_complete })
+cmd("Toggle", function() require("avante").toggle() end, { desc = "Toggle AI Panel" })
 cmd("Build", function(opts)
   local args = Utils.parse_args(opts.fargs)
 
@@ -112,20 +112,20 @@ cmd("Build", function(opts)
 
   require("avante.api").build(args)
 end, {
-  desc = "avante: build dependencies",
+  desc = "Build Dependencies",
   nargs = "*",
   complete = function(_, _, _) return { "source=true", "source=false" } end,
 })
 cmd(
   "Edit",
   function(opts) require("avante.api").edit(vim.trim(opts.args), opts.line1, opts.line2) end,
-  { desc = "avante: edit selected block", nargs = "*", range = 2 }
+  { desc = "Edit Selected Block", nargs = "*", range = 2 }
 )
-cmd("Refresh", function() require("avante.api").refresh() end, { desc = "avante: refresh windows" })
-cmd("Focus", function() require("avante.api").focus() end, { desc = "avante: switch focus windows" })
+cmd("Refresh", function() require("avante.api").refresh() end, { desc = "Refresh Windows" })
+cmd("Focus", function() require("avante.api").focus() end, { desc = "Switch Focus Windows" })
 cmd("SwitchProvider", function(opts) require("avante.api").switch_provider(vim.trim(opts.args or "")) end, {
   nargs = 1,
-  desc = "avante: switch provider",
+  desc = "Switch Provider",
   complete = function(_, line, _)
     local prefix = line:match("AvanteSwitchProvider%s*(.*)$") or ""
     ---@param key string
@@ -137,12 +137,12 @@ cmd(
   function(opts) require("avante.api").switch_selector_provider(vim.trim(opts.args or "")) end,
   {
     nargs = 1,
-    desc = "avante: switch selector provider",
+    desc = "Switch Selector Provider",
   }
 )
 cmd("SwitchInputProvider", function(opts) require("avante.api").switch_input_provider(vim.trim(opts.args or "")) end, {
   nargs = 1,
-  desc = "avante: switch input provider",
+  desc = "Switch Input Provider",
   complete = function(_, line, _)
     local prefix = line:match("AvanteSwitchInputProvider%s*(.*)$") or ""
     local providers = { "native", "dressing", "snacks" }
@@ -169,11 +169,11 @@ cmd("Clear", function(opts)
     return
   end
 end, {
-  desc = "avante: clear history, memory or cache",
+  desc = "Clear History, Memory or Cache",
   nargs = "?",
   complete = function(_, _, _) return { "history", "cache" } end,
 })
-cmd("ShowRepoMap", function() require("avante.repo_map").show() end, { desc = "avante: show repo map" })
-cmd("Models", function() require("avante.model_selector").open() end, { desc = "avante: show models" })
-cmd("History", function() require("avante.api").select_history() end, { desc = "avante: show histories" })
-cmd("Stop", function() require("avante.api").stop() end, { desc = "avante: stop current AI request" })
+cmd("ShowRepoMap", function() require("avante.repo_map").show() end, { desc = "Show Repo Map" })
+cmd("Models", function() require("avante.model_selector").open() end, { desc = "Show Models" })
+cmd("History", function() require("avante.api").select_history() end, { desc = "Show Histories" })
+cmd("Stop", function() require("avante.api").stop() end, { desc = "Stop Current AI Request" })
